@@ -1,4 +1,5 @@
-import Card2 from "../card2";
+import Card from "../Card2";
+// import Card from "../Card";
 
 export const CategoryPreviewMin = () => {
   return (
@@ -20,22 +21,22 @@ export const CategoryPreviewMin = () => {
       </div>
       <div className="grid gap-6 row-gap-5 mb-8 lg:grid-cols-3 sm:row-gap-6 sm:grid-cols-1">
         <a href="/" aria-label="View Item">
-          <Card2></Card2>
+          <Card></Card>
         </a>
         <a href="/" aria-label="View Item">
-          <Card2></Card2>
+          <Card></Card>
         </a>
         <a href="/" aria-label="View Item">
-          <Card2></Card2>
+          <Card></Card>
         </a>
         <a href="/" aria-label="View Item">
-          <Card2></Card2>
+          <Card></Card>
         </a>
         <a href="/" aria-label="View Item">
-          <Card2></Card2>
+          <Card></Card>
         </a>
         <a href="/" aria-label="View Item">
-          <Card2></Card2>
+          <Card></Card>
         </a>
       </div>
       <div className="text-center">

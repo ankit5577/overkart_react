@@ -1,16 +1,16 @@
 import React from "react";
 
-function card2() {
+function Card() {
   return (
     <div class="grid p-4 antialiased text-gray-900">
       <div>
         <img
           src="https://source.unsplash.com/random/350x350"
           alt=" random imgee"
-          class="w-full object-cover object-center rounded-lg shadow-md"
+          class="w-full object-cover object-center rounded-2xl shadow-lg"
         />
         <div class="relative px-4 -mt-16  ">
-          <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="bg-white p-6 rounded-xl shadow-lg">
             <div class="flex items-baseline">
               <span class="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
                 New
@@ -41,4 +41,4 @@ function card2() {
   );
 }
 
-export default card2;
+export default Card;
