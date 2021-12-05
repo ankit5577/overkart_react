@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="relative mt-16 bg-deep-purple-accent-400 z-0">
+    <footer className="relative mt-16 bg-deep-purple-accent-400 pb-16 md:pb-4 z-10">
       <svg
         className="absolute top-0 w-full h-6 -mt-5 sm:-mt-10 sm:h-16 text-deep-purple-accent-400"
         preserveAspectRatio="none"

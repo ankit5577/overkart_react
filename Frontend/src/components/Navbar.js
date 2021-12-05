@@ -5,7 +5,7 @@ import Button from "./Button";
 function Navbar(prop) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <nav className="fixed bg-white w-full top-0 z-50 shadow-lg">
+    <nav className="fixed bg-white w-full top-0 z-10 border">
       <div className="container mx-auto p-4 flex flex-row justify-between gap-4">
         <div className="flex">
           {/* side menu */}

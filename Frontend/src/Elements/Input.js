@@ -4,17 +4,17 @@ function Input(prop) {
   return (
     <div className="flex flex-row justify-center flex-1 relative">
       <input
-        type={prop.type ?? "type"}
-        placeholder={prop.placeholder ?? ""}
+        type={prop.type ? prop.type : "type"}
+        placeholder={prop.placeholder ? prop.placeholder : ""}
         className={`rounded-l-xl w-full
          py-2
          px-4
          border
-          border-gray-200
+       border-gray-200
          max-w-2xl
          transition duration-200
          focus:outline-none   
-         focus:shadow-md
+         focus:shadow-sm
          border-r-0
          `}
       />

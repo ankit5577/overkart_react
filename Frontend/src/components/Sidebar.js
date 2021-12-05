@@ -3,7 +3,7 @@ import React from "react";
 function Sidebar(prop) {
   return (
     <aside
-      className={`absolute md:top-24 border-b-0 border w-64 transition-all inset-y-0 ease-out duration-200 md:flex transform ${
+      className={`fixed bg-white z-10 top-[89px] border-b-0 border w-64 transition-all inset-y-0 ease-out duration-200 md:flex transform ${
         prop.showSidebar ? "translate-x-0" : "-translate-x-full"
       }`}
     >

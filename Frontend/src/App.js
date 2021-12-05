@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import { useState } from "react";
+import BottomNav from "./components/BottomNav";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -33,6 +34,7 @@ function App() {
           </Routes>
         </main>
       </div>
+      <BottomNav />
       <Footer />
     </div>
   );
