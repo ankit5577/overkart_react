@@ -1,11 +1,10 @@
 import React from "react";
 
 function Sidebar(prop) {
-  console.log(prop.showSidebar)
   return (
     <aside
-      className={`absolute md:top-24 border-b-0 border w-64 transition-all inset-y-0 ease-out duration-200 md:flex transform -translate-x-full ${
-        prop.showSidebar ? "" : "translate-x-0"
+      className={`absolute md:top-24 border-b-0 border w-64 transition-all inset-y-0 ease-out duration-200 md:flex transform ${
+        prop.showSidebar ? "translate-x-0" : "-translate-x-full"
       }`}
     >
       <nav className="flex flex-1 flex-col p-2">

@@ -7,20 +7,17 @@ import Sidebar from "./components/Sidebar";
 import { useState } from "react";
 
 function App() {
-  const [sidebar, setSidebar] = useState(false);
-
+  const [showSidebar, setShowSidebar] = useState(false);
   return (
     <div className="App md:flex md:flex-col h-screen relative">
-      <Navbar openSidebar={() => setSidebar(!sidebar)} />
+      <Navbar openSidebar={() => setShowSidebar(!showSidebar)} />
       <div className="flex flex-row mt-24">
-        <Sidebar showSidebar={sidebar} />
+        <Sidebar showSidebar={showSidebar} />
         <main
-          
-          className={`mx-auto flex flex-1 ${
-            sidebar
-              ? ""
-              : "transform translate-x-80 md:translate-x-0 transition duration-200 ease-in-out blur-sm md:blur-none"
-          }`}
+          className={`mx-auto flex flex-1 transform transition duration-200 ease-in-out
+           md:blur-none  md:translate-x-0 ${
+             showSidebar ? "blur-sm translate-x-80" : ""
+           }`}
         >
           <Routes>
             <Route
