@@ -34,12 +34,9 @@ export const CategoryPreviewMax = () => {
         </p>
       </div>
       <div className="grid gap-8 row-gap-5 mb-8 lg:grid-cols-3 lg:row-gap-8">
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
+        {[1,2,3,4,5,6].map((data) => {
+          return <Card key={data} />;
+        })}
       </div>
       <div className="text-center">
         <a

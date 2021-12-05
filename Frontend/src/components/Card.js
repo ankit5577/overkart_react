@@ -15,6 +15,7 @@ function Card() {
           overflow-hidden
           sm:flex-row sm:h-52 sm:w-3/5
           md:w-96
+          hover:shadow-xl
         "
     >
       <img
