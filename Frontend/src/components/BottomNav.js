@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./Button";
+import Button from "../Elements/Button";
 
 function BottomNav() {
   return (

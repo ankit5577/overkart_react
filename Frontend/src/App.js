@@ -11,7 +11,7 @@ function App() {
   const [showSidebar, setShowSidebar] = useState(false);
   return (
     <div className="App md:flex md:flex-col h-screen relative">
-      <Navbar openSidebar={() => setShowSidebar(!showSidebar)} />
+      <Navbar openSidebar={() => setShowSidebar(!showSidebar)} hideSidebar={() => setShowSidebar(false)} />
       <div className="flex flex-row mt-24">
         <Sidebar showSidebar={showSidebar} />
         <main

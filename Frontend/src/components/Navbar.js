@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 import Input from "../Elements/Input";
-import Button from "./Button";
+import Button from "../Elements/Button";
+import Topbar from "./Topbar";
 
 function Navbar(prop) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const setIsMenuHandler = () => {
+    prop.hideSidebar();
+    setIsMenuOpen(() => !isMenuOpen);
+  };
+
   return (
-    <nav className="fixed bg-white w-full top-0 z-10 border">
+    <nav className="fixed bg-white w-full z-10 border top-0">
+      <Topbar />
       <div className="container mx-auto p-4 flex flex-row justify-between gap-4">
         <div className="flex">
           {/* side menu */}
@@ -30,7 +38,7 @@ function Navbar(prop) {
             icon_url={"https://img.icons8.com/ios/50/000000/search--v1.png"}
           />
         </div>
-        <Button class="md:hidden" click={() => setIsMenuOpen(!isMenuOpen)}>
+        <Button class="md:hidden" click={() => setIsMenuHandler()}>
           <img
             alt="menu"
             src="https://img.icons8.com/material-outlined/24/000000/menu--v1.png"
@@ -44,6 +52,7 @@ function Navbar(prop) {
               src="https://img.icons8.com/material-outlined/24/000000/shopping-cart--v2.png"
               alt="cart"
             />
+            <div className=" rounded-full px-2 py-1 translate -translate-y-2 -translate-x-1 font-semibold bg-teal-400 text-white text-[6px]">1</div>
           </Button>
         </nav>
         {/* display nav end */}
@@ -57,7 +66,7 @@ function Navbar(prop) {
                   className="self-center w-12"
                   alt="logo"
                 />
-                <Button click={() => setIsMenuOpen(false)}>
+                <Button click={() => setIsMenuHandler()}>
                   <img
                     alt="close menu"
                     src="https://img.icons8.com/material-outlined/24/000000/delete-sign.png"

@@ -3,8 +3,8 @@ import React from "react";
 function Sidebar(prop) {
   return (
     <aside
-      className={`fixed bg-white z-10 top-[89px] border-b-0 border w-64 transition-all inset-y-0 ease-out duration-200 md:flex transform ${
-        prop.showSidebar ? "translate-x-0" : "-translate-x-full"
+      className={`fixed bg-white z-10 top-[89px] md:top-[137px] border-b-0 border w-64 transition-all inset-y-0 ease-out duration-200 md:flex transform ${
+        prop.showSidebar ? "translate-x-0 " : "-translate-x-full"
       }`}
     >
       <nav className="flex flex-1 flex-col p-2">
