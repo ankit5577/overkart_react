@@ -1,29 +1,41 @@
 import React, { useState } from "react";
+import Input from "../Elements/Input";
+import Button from "./Button";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <nav className="bg-gray-100">
+    <nav className="bg-gray-50">
       <div className="container mx-auto p-4 flex flex-row justify-between gap-4">
         <div className="flex">
+          {/* side menu */}
+          <Button click={() => setIsMenuOpen(!isMenuOpen)}>
+            <img
+              alt="menu"
+              src="https://img.icons8.com/material-outlined/24/000000/menu--v1.png"
+            />
+          </Button>
+          {/* logo */}
           <img
             src="https://svgsilh.com/svg_v2/2056977.svg"
             className="self-center w-12"
             alt="logo"
           />
         </div>
-        <div className="flex flex-auto">
-          <input
-            className=" px-4 w-full max-h-16 rounded-xl max-w-2xl mx-auto focus:outline-none focus:ring focus:border-blue-300 "
-            type="text"
+        <div className="flex flex-1">
+          <Input
+            icon={true}
+            icon_right={true}
+            placeholder={"Search Products"}
+            icon_url={"https://img.icons8.com/ios/50/000000/search--v1.png"}
           />
         </div>
-        <button
-          className="flex p-4 md:hidden"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          🎁
-        </button>
+        <Button class="md:hidden" click={() => setIsMenuOpen(!isMenuOpen)}>
+          <img
+            alt="menu"
+            src="https://img.icons8.com/material-outlined/24/000000/menu--v1.png"
+          />
+        </Button>
 
         {/* for displays */}
         <nav className="hidden md:flex justify-center align-middle flex-wrap">
@@ -45,7 +57,12 @@ function Navbar() {
                   className="self-center w-12"
                   alt="logo"
                 />
-                <button onClick={() => setIsMenuOpen(false)}>✖️</button>
+                <Button click={() => setIsMenuOpen(false)}>
+                  <img
+                    alt="close menu"
+                    src="https://img.icons8.com/material-outlined/24/000000/delete-sign.png"
+                  />
+                </Button>
               </div>
               <div className="border border-gray-200"></div>
               <nav className="flex flex-wrap flex-auto flex-col">
