@@ -1,12 +1,13 @@
 import React from "react";
 
-function Card() {
+function Card(prop) {
+  console.log(prop)
   return (
     <div className="grid p-4 antialiased text-gray-900">
       <div>
         <img
-          src="https://source.unsplash.com/random/350x350"
-          alt=" random imgee"
+          src={prop.product?.images[0]?.src}
+          alt={`${prop.product?.brand} ${prop.product?.title} ${prop.product?.category}`}
           className="w-full object-cover object-center rounded-2xl hover:shadow-2xl"
         />
         <div className="relative px-4 -mt-16  ">
@@ -21,18 +22,19 @@ function Card() {
             </div>
 
             <h4 className="mt-1 text-xl font-semibold uppercase leading-tight truncate">
-              A random Title
+              {prop.product?.title}
             </h4>
-
             <div className="mt-1">
-              $1800
-              <span className="text-gray-600 text-sm"> /wk</span>
+              <span className="text-gray-600 text-sm">₹ </span>
+              {prop.product?.price}
             </div>
             <div className="mt-4">
               <span className="text-teal-600 text-md font-semibold">
                 4/5 ratings{" "}
               </span>
-              <span className="text-sm text-gray-600">(based on 234 ratings)</span>
+              <span className="text-sm text-gray-600">
+                (based on 234 ratings)
+              </span>
             </div>
           </div>
         </div>

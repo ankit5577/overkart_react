@@ -16,7 +16,7 @@ function Topbar() {
           <p className="self-center text-xs">730 784 4227</p>
         </div>
         <div className="flex flex-row flex-wrap gap-2">
-          <Button class="text-xs">
+          <Button class="text-xs hover:text-black">
             <img
               className="w-4 mr-1"
               src="https://img.icons8.com/ios-glyphs/24/000000/compare-heights.png"
@@ -24,7 +24,7 @@ function Topbar() {
             />
             Compare
           </Button>
-          <Button class="text-xs">
+          <Button class="text-xs hover:text-black">
             <img
               className="w-4 mr-1"
               src="https://img.icons8.com/material-outlined/24/000000/like--v1.png"
@@ -32,7 +32,7 @@ function Topbar() {
             />{" "}
             Wishlist
           </Button>
-          <Button class="text-xs">
+          <Button class="text-xs hover:text-black">
             <img
               className="w-4 mr-1"
               src="https://img.icons8.com/material-rounded/24/000000/guest-male.png"

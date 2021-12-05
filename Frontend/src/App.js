@@ -9,9 +9,13 @@ import BottomNav from "./components/BottomNav";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
+
   return (
     <div className="App md:flex md:flex-col h-screen relative overflow-auto">
-      <Navbar openSidebar={() => setShowSidebar(!showSidebar)} hideSidebar={() => setShowSidebar(false)} />
+      <Navbar
+        openSidebar={() => setShowSidebar(!showSidebar)}
+        hideSidebar={() => setShowSidebar(false)}
+      />
       <div className="flex flex-row mt-24">
         <Sidebar showSidebar={showSidebar} />
         <main
@@ -25,12 +29,12 @@ function App() {
               path="/"
               element={
                 <div className="flex-grow">
-                  <Home></Home>
+                  <Home />
                 </div>
               }
             />
-            <Route path="expenses" element={<div>hello</div>} />
-            <Route path="invoices" element={<div>hello2</div>} />
+            <Route path="product" element={<div>hello</div>} />
+            <Route path="search" element={<div>hello2</div>} />
           </Routes>
         </main>
       </div>
