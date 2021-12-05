@@ -47,6 +47,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(morgan("dev"));
 
+// localhost:3000/api/product/
 app.use("/api/product", ProductRoute);
 app.use("/api/user", UserRoute);
 app.use("/api/admin", AdminRoute);

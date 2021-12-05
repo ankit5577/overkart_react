@@ -1,27 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 
-function Sidebar() {
-  const [show, setShow] = useState(true);
+function Sidebar(prop) {
+  console.log(prop.showSidebar)
   return (
     <aside
-      className="absolute inset-y-0 backdrop-blur-sm w-screen h-screen transform -translate-x-full transition duration-300 ease-in-out md:relative md:translate-x-0"
-      onClick={() => {
-        setShow(false);
-      }}
+      className={`absolute md:top-24 border-b-0 border w-64 transition-all inset-y-0 ease-out duration-200 md:flex transform -translate-x-full ${
+        prop.showSidebar ? "" : "translate-x-0"
+      }`}
     >
-      <nav className="bg-gray-800 h-screen w-64 flex flex-grow flex-col">
-        <li className="block py-2.5 px-4 text-white hover:bg-gray-900 transition duration-200">
-          hellow
-        </li>
-        <li className="block py-2.5 px-4 text-white hover:bg-gray-900 transition duration-200">
-          hellow
-        </li>
-        <li className="block py-2.5 px-4 text-white hover:bg-gray-900 transition duration-200">
-          hellow
-        </li>
-        <li className="block py-2.5 px-4 text-white hover:bg-gray-900 transition duration-200">
-          hellow
-        </li>
+      <nav className="flex flex-1 flex-col p-2">
+        <li className="block px-4 py-2.5 border-b border-gray-200">Home</li>
+        <li className="block px-4 py-2.5 border-b border-gray-200">Home</li>
+        <li className="block px-4 py-2.5 border-b border-gray-200">Home</li>
+        <li className="block px-4 py-2.5 border-b border-gray-200">Home</li>
       </nav>
     </aside>
   );

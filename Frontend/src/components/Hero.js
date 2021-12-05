@@ -59,8 +59,8 @@ const Header = () => {
           <p className="max-w-md mx-auto mb-10 text-xs text-gray-600 sm:text-sm md:mb-16">
             Subsrible to our NewLetter to get latest updates on Discount or festival Offers.
           </p>
-          <a
-            href="/"
+          <button
+            onClick={() => window.scrollBy(0, 640)}
             aria-label="Scroll down"
             className="flex items-center justify-center w-10 h-10 mx-auto text-gray-600 duration-300 transform border border-gray-400 rounded-full hover:text-deep-purple-accent-400 hover:border-deep-purple-accent-400 hover:shadow hover:scale-110"
           >
@@ -73,7 +73,7 @@ const Header = () => {
             >
               <path d="M10.293,3.293,6,7.586,1.707,3.293A1,1,0,0,0,.293,4.707l5,5a1,1,0,0,0,1.414,0l5-5a1,1,0,1,0-1.414-1.414Z" />
             </svg>
-          </a>
+          </button>
         </div>
       </div>
     </div>

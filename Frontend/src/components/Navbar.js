@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import Input from "../Elements/Input";
 import Button from "./Button";
 
-function Navbar() {
+function Navbar(prop) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <nav className="bg-gray-50">
+    <nav className="fixed bg-white w-full top-0 z-50 shadow-lg">
       <div className="container mx-auto p-4 flex flex-row justify-between gap-4">
         <div className="flex">
           {/* side menu */}
-          <Button click={() => setIsMenuOpen(!isMenuOpen)}>
+          <Button click={() => prop.openSidebar()}>
             <img
               alt="menu"
               src="https://img.icons8.com/material-outlined/24/000000/menu--v1.png"
@@ -39,12 +39,12 @@ function Navbar() {
 
         {/* for displays */}
         <nav className="hidden md:flex justify-center align-middle flex-wrap">
-          <li className="flex px-2 py-1 cursor-pointer self-center hover:bg-gray-600 hover:text-white hover:rounded-lg">
-            Home
-          </li>
-          <li className="flex px-2 py-1 cursor-pointer self-center hover:bg-gray-600 hover:text-white hover:rounded-lg">
-            About
-          </li>
+          <Button>
+            <img
+              src="https://img.icons8.com/material-outlined/24/000000/shopping-cart--v2.png"
+              alt="cart"
+            />
+          </Button>
         </nav>
         {/* display nav end */}
         {/* for mobile */}
