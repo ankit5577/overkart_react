@@ -25,6 +25,7 @@ export const CategoryPreviewMin = () => {
       <div className="grid gap-6 row-gap-5 mb-8 lg:grid-cols-3 sm:row-gap-6 sm:grid-cols-1">
         {[0, 1, 2, 3, 4, 5].map((index) => (
             <Card
+              key={index}
               product={
                 productCtx.products[
                   Math.floor(Math.random() * (productCtx.products.length - 0) + 1)

@@ -38,12 +38,7 @@ function Topbar() {
               src="https://img.icons8.com/material-rounded/24/000000/guest-male.png"
               alt="account"
             />
-            Account
-            <div className="invisible top-10 bg-gray-50 border p-4 rounded-lg absolute transition duration-1000 group-focus:visible">
-              <li className="flex flex-1 px-2 py-1 hover:text-deep-purple-400 cursor-pointer">
-                login
-              </li>
-            </div>
+            Login / Signup
           </Button>
         </div>
       </div>

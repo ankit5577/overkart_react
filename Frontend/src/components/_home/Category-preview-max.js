@@ -4,6 +4,7 @@ import Card from "../Card";
 
 export const CategoryPreviewMax = () => {
   const productCtx = useContext(ProductStore);
+
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="flex flex-col w-full mb-6 lg:justify-between lg:flex-row md:mb-8">
@@ -37,16 +38,16 @@ export const CategoryPreviewMax = () => {
         </p>
       </div>
       <div className="grid gap-8 row-gap-5 mb-8 lg:grid-cols-3 lg:row-gap-8">
-      {[0, 1, 2, 3, 4, 5].map((index) => (
-          <a href="/" key={index} aria-label="View Item">
-            <Card
-              product={
-                productCtx.products[
-                  Math.floor(Math.random() * (productCtx.products.length - 0) + 1)
-                ]
-              }
-            ></Card>
-          </a>
+      
+        {[0, 1, 2, 3, 4, 5].map((index) => (
+          <Card
+            key={index}
+            product={
+              productCtx.products[
+                index
+              ]
+            }
+          ></Card>
         ))}
       </div>
       <div className="text-center">

@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Input from "../Elements/Input";
 import Button from "../Elements/Button";
 import Topbar from "./Topbar";
+import ProductStore from "../services/ProductState";
 
 function Navbar(prop) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const productCtx = useContext(ProductStore);
 
   const setIsMenuHandler = () => {
     prop.hideSidebar();
@@ -52,7 +54,11 @@ function Navbar(prop) {
               src="https://img.icons8.com/material-outlined/24/000000/shopping-cart--v2.png"
               alt="cart"
             />
-            <div className=" rounded-full px-2 py-1 translate -translate-y-2 -translate-x-1 font-semibold bg-teal-400 text-white text-[6px]">1</div>
+            {productCtx.cartItems.length > 0 && (
+              <div className=" rounded-full px-2 py-1 translate -translate-y-2 -translate-x-1 font-semibold bg-teal-400 text-white text-[6px]">
+                {productCtx.cartItems.length}
+              </div>
+            )}
           </Button>
         </nav>
         {/* display nav end */}
