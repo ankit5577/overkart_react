@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ProductStore from "../services/ProductState";
 
 function Card(prop) {
-  console.log('card is called');
+  console.log("card is called");
   const ProductCtx = useContext(ProductStore);
 
   const addToCartHandler = (id) => {

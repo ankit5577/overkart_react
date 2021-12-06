@@ -13,7 +13,7 @@ function Product() {
   }, [id]);
   return (
     <div className="">
-      <h1>hello i am {product}</h1>
+      <h1>hello i am products</h1>
     </div>
   );
 }
