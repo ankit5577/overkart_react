@@ -24,7 +24,6 @@ export const CategoryPreviewMin = () => {
       </div>
       <div className="grid gap-6 row-gap-5 mb-8 lg:grid-cols-3 sm:row-gap-6 sm:grid-cols-1">
         {[0, 1, 2, 3, 4, 5].map((index) => (
-          <a href="/" key={index} aria-label="View Item">
             <Card
               product={
                 productCtx.products[
@@ -32,7 +31,6 @@ export const CategoryPreviewMin = () => {
                 ]
               }
             ></Card>
-          </a>
         ))}
       </div>
       <div className="text-center">

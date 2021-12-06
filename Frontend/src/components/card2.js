@@ -1,16 +1,15 @@
 import React from "react";
 
 function Card(prop) {
-  console.log(prop)
   return (
-    <div className="grid p-4 antialiased text-gray-900">
-      <div>
+    <div className="flex flex-1 flex-wrap p-4 antialiased text-gray-900 ">
+      <div className="flex flex-1 relative pb-20">
         <img
           src={prop.product?.images[0]?.src}
           alt={`${prop.product?.brand} ${prop.product?.title} ${prop.product?.category}`}
-          className="w-full object-cover object-center rounded-2xl hover:shadow-2xl"
+          className="w-full object-cover object-center rounded-2xl hover:shadow-md flex flex-1"
         />
-        <div className="relative px-4 -mt-16  ">
+        <div className="absolute transform translate-x-7 bottom-0">
           <div className="bg-white p-6 rounded-xl shadow-lg">
             <div className="flex items-baseline">
               <span className="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">

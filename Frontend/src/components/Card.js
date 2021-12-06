@@ -5,7 +5,7 @@ function Card(prop) {
     <div
       className="
           bg-white
-          shadow-md
+          border
           h-96
           mx-3
           rounded-3xl
@@ -15,13 +15,13 @@ function Card(prop) {
           overflow-hidden
           sm:flex-row sm:h-52 sm:w-3/5
           md:w-96
-          hover:shadow-xl
+          hover:shadow-sm
         "
     >
       <img
         className="h-1/2 w-full sm:h-full sm:w-1/2 object-cover"
         src={prop.product?.images[0]?.src}
-        alt="product"
+        alt={prop.product?.title + ' item'}
       />
       <div
         className="
@@ -36,14 +36,14 @@ function Card(prop) {
           "
       >
         <div className="flex flex-col justify-start items-baseline">
-          <h1 className="text-lg font-normal mb-0 text-gray-600 font-sans">
+          <h1 className="text-lg font-normal mb-0 text-gray-600 font-sans pt-2">
             {prop.product?.title}
           </h1>
           <span className="text-xs text-indigo-300 mt-0">
             by {prop.product?.brand}
           </span>
         </div>
-        <p className="text-xs text-gray-500 w-4/5 overflow-auto overflow-ellipsis my-4">
+        <p className="text-xs text-gray-500 w-4/5 overflow-y-hidden overflow-ellipsis my-4">
           {prop.product?.description}
         </p>
         <div className="w-full flex justify-between items-center py-2">
