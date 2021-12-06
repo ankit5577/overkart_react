@@ -11,7 +11,11 @@ function App() {
   const [showSidebar, setShowSidebar] = useState(false);
 
   return (
-    <div className="App md:flex md:flex-col h-screen relative overflow-auto">
+    <div
+      className={`App md:flex md:flex-col h-screen relative ${
+        showSidebar ? "overflow-hidden md:overflow-auto" : ""
+      } h-auto`}
+    >
       <Navbar
         openSidebar={() => setShowSidebar(!showSidebar)}
         hideSidebar={() => setShowSidebar(false)}
@@ -21,7 +25,7 @@ function App() {
         <main
           className={`mx-auto flex flex-1 transform transition duration-200 ease-in-out
            md:blur-none  md:translate-x-0 ${
-             showSidebar ? "blur-sm translate-x-80" : ""
+             showSidebar ? "blur-sm translate-x-80 " : ""
            }`}
         >
           <Routes>

@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <div className="flex px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="max-w-2xl mx-auto sm:max-w-xl md:max-w-2xl">
         <div className="text-center">
           <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
@@ -60,7 +60,10 @@ const Header = () => {
             Subsrible to our NewLetter to get latest updates on Discount or festival Offers.
           </p>
           <button
-            onClick={() => window.scrollBy(0, 640)}
+            onClick={() => {
+              window.focus();
+              window.scrollBy(0, window.innerHeight);
+            }}
             aria-label="Scroll down"
             className="flex items-center justify-center w-10 h-10 mx-auto text-gray-600 duration-300 transform border border-gray-400 rounded-full hover:text-deep-purple-accent-400 hover:border-deep-purple-accent-400 hover:shadow hover:scale-110"
           >
