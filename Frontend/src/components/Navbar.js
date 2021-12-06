@@ -3,6 +3,7 @@ import Input from "../Elements/Input";
 import Button from "../Elements/Button";
 import Topbar from "./Topbar";
 import ProductStore from "../services/ProductState";
+import { Link } from "react-router-dom";
 
 function Navbar(prop) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,11 +27,14 @@ function Navbar(prop) {
             />
           </Button>
           {/* logo */}
-          <img
-            src="https://svgsilh.com/svg_v2/2056977.svg"
-            className="self-center w-12"
-            alt="logo"
-          />
+          <Link to="/">
+            <img
+              src="https://svgsilh.com/svg_v2/2056977.svg"
+              className="self-center w-12"
+              alt="logo"
+            />
+          </Link>
+
         </div>
         <div className="flex flex-1">
           <Input

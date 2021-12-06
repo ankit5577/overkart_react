@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import ProductStore from "../../services/ProductState";
-import Card from "../Card2";
+import Card from "../card2";
 // import Card from "../Card";
 
 export const CategoryPreviewMin = () => {

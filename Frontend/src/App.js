@@ -7,6 +7,7 @@ import Sidebar from "./components/Sidebar";
 import { useState } from "react";
 import BottomNav from "./components/BottomNav";
 import Product from "./pages/Product";
+import Search from "./pages/Search";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -32,8 +33,8 @@ function App() {
           <div className=" flex flex-col flex-grow px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="search/*" element={<Search />} />
               <Route path="product/:id" element={<Product />} />
-              <Route path="search" element={<div>hello2</div>} />
             </Routes>
           </div>
         </main>
