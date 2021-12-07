@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import Button from "../UI/Button";
 import ProductStore from "../services/ProductState";
+import useHttp from "../services/Hooks/use-http";
 
 function Product() {
   const { id } = useParams();
@@ -10,38 +11,43 @@ function Product() {
   const [product, setProduct] = useState({});
   const [similarProducts, setSimilarProducts] = useState([]);
   const [showImg, setshowImg] = useState("");
+  const responseHandler = (data) => {
+    setProduct(() => data);
+    setshowImg(() => data.images[0].src);
+  };
+
+  const {
+    isLoading,
+    error,
+    sendRequest: fetch,
+  } = useHttp(`/product/${id}`, {}, responseHandler);
 
   useEffect(() => {
-    console.log("product page useEffect init");
+    setSimilarProducts(() => {
+      let local_products = [];
+      let count_image = 0;
+      for (let local of productCtx.products) {
+        console.log("ejhe");
+        if (
+          local.category === product.category ||
+          local.type === product.type
+        ) {
+          local_products.push(local);
+          count_image++;
+        }
+        if (count_image === 10) {
+          break;
+        }
+      }
+      return local_products;
+    });
+  }, [productCtx.products, product]);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
-    fetch(`http://localhost:4000/api/product/${id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setProduct(() => data.data);
-        setshowImg(() => data.data.images[0].src);
-        console.log(data.data);
-      })
-      .then(() => {
-        console.log("getting similar products");
-        setSimilarProducts(() => {
-          let local_products = [];
-          let count_image = 0;
-          for (let local of productCtx.products) {
-            if (
-              local.category === product.category ||
-              local.type === product.type
-            ) {
-              local_products.push(local);
-              count_image++;
-            }
-            if (count_image === 10) {
-              break;
-            }
-          }
-          return local_products;
-        });
-      });
-  }, [id, product.category, product.type, productCtx.products]);
+    fetch();
+    console.log(isLoading, error);
+  }, [id]);
 
   return (
     <div className="flex flex-row-reverse">
@@ -51,11 +57,11 @@ function Product() {
           <div className="h-1 ml-auto duration-300 origin-left transform bg-deep-purple-accent-400 scale-x-30 group-hover:scale-x-100" />
         </h2>
         {/* similar product list */}
-        {similarProducts?.length > 0 ? (
-          similarProducts.map((element) => (
+        {similarProducts?.length ? (
+          similarProducts.map((element, index) => (
             <Link
               to={`../product/${element._id}`}
-              key={element._id}
+              key={index}
               className="flex gap-2 mt-2 flex-grow flex-wrap"
             >
               <div className="flex flex-grow flex-row shadow-sm p-2 rounded-xl gap-2 hover:shadow-sm">
@@ -92,7 +98,7 @@ function Product() {
           )}
           <div className="flex flex-row gap-2 flex-wrap mx-auto">
             {product.images?.map((d) => (
-              <button onClick={() => setshowImg(d.src)}>
+              <button key={d.src} onClick={() => setshowImg(d.src)}>
                 <img
                   src={d.src}
                   className="w-14 py-2 rounded-md"
@@ -151,6 +157,7 @@ function Product() {
             >
               {product?.collections?.map((data) => (
                 <span
+                  key={data}
                   className={`px-2 py-1 text-xs font-medium tracking-light text-center self-center justify-self-center
                   bg-teal-accent-700 text-white rounded-full m-1`}
                 >

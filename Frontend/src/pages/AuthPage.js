@@ -1,27 +1,35 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
+import useHttp from "../services/Hooks/use-http";
 import Button from "../UI/Button";
 
 const Auth = () => {
   const formref = useRef();
-  const signupHandler = () => {
-    const { email, name, password } = formref.current.elements;
-    fetch("http://localhost:4000/api/user/login", {
+
+  function responseHandler(data) {
+    console.log("hehe", data, error, isLoading);
+  }
+
+  const {
+    isLoading,
+    error,
+    sendRequest: fetch,
+  } = useHttp(
+    "/user/login",
+    {
       method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
+      body: {
+        email: formref?.current?.elements?.email.value,
+        name: formref?.current?.elements?.name.value,
+        password: formref?.current?.elements?.password.value,
       },
-      body: JSON.stringify({
-        email: email.value,
-        name: name.value,
-        password: password.value,
-      }),
-    })
-      .then((response) => response.json())
-      .then((d) => {
-          
-      })
+    },
+    responseHandler
+  );
+
+  const signupHandler = () => {
+    fetch();
   };
+
   return (
     <div className="relative">
       <img
