@@ -12,6 +12,7 @@ function Product() {
       .then((data) => {
         setProduct(() => data.data);
         setshowImg(() => data.data.images[0].src);
+        console.log(data.data);
       });
   }, [id]);
 
@@ -47,15 +48,39 @@ function Product() {
           </div>
         </div>
         <div className="flex-1 px-6 py-2">
-          <h2 className="font-sans text-3xl place-self-center font-semibold leading-none tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="font-sans text-3xl place-self-center font-semibold leading-none tracking-tight text-gray-800 sm:text-4xl">
             <span className="inline-block mb-2">{product.title}</span>
             <div className="text-xl font-light text-deep-purple-accent-400">
               by {product.brand}
             </div>
           </h2>
           <div className="my-4 font-extralight">{product.description}</div>
-          <h3 className="text-4xl font-bold text-gray-800">
-            ₹ {product.price}
+          <h3 className=" text-gray-800">
+            {product.discount > 0 ? (
+              <div>
+                <p className="text-xs font-semibold">
+                  MRP:
+                  <s className="text-red-400 font-normal text-lg">
+                    ₹{product.price}
+                  </s>{" "}
+                </p>
+                <p className="text-xs font-semibold">
+                  Price:{" "}
+                  <span className="text-lg font-medium text-green-800">
+                    {" "}
+                    ₹{product.price - product.discount}{" "}
+                  </span>
+                </p>
+                <p className="text-xs font-semibold">
+                  Savings: {" "}
+                  {
+                    <i className="text-lg font-normal  px-1 py-1 pr-2 bg-green-500 text-white rounded-md">{`+${product.discount}`}</i>
+                  }
+                </p>
+              </div>
+            ) : (
+              <p>₹ {product.price}</p>
+            )}
           </h3>
         </div>
       </div>
