@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import ProductStore from "../../services/ProductState";
-import Card from "../Card";
+import Card from "../SmallProductCard";
 
-export const CategoryPreviewMax = () => {
+export const CategoryPreviewMin = () => {
   const productCtx = useContext(ProductStore);
 
   return (

@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import Button from "../Elements/Button";
+import Button from "../UI/Button";
 
 const Auth = () => {
   const formref = useRef();
@@ -18,8 +18,9 @@ const Auth = () => {
       }),
     })
       .then((response) => response.json())
-      .then((d) => console.log(d))
-      .catch(error => console.error(error));
+      .then((d) => {
+          
+      })
   };
   return (
     <div className="relative">

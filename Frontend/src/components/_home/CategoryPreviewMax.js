@@ -1,8 +1,8 @@
 import React, { useContext, useMemo } from "react";
 import ProductStore from "../../services/ProductState";
-import Card from "../card2";
+import Card from "../ModernCard";
 
-export const CategoryPreviewMin = () => {
+export const CategoryPreviewMax = () => {
   const productCtx = useContext(ProductStore);
 
   const getCards = useMemo(() => {
@@ -11,7 +11,9 @@ export const CategoryPreviewMin = () => {
         key={index}
         product={
           productCtx.products[
-            Math.floor(Math.random() * (productCtx.products.length - 0) + index)
+            Math.floor(
+              Math.random() * (productCtx.products.length - index) + index
+            )
           ]
         }
       ></Card>

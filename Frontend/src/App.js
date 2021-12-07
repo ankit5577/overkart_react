@@ -1,14 +1,17 @@
 import { Route, Routes } from "react-router";
 import "./App.css";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import { useState } from "react";
-import BottomNav from "./components/BottomNav";
-import Product from "./pages/Product";
-import Search from "./pages/Search";
-import Auth from "./pages/Auth";
+import Navbar from "./components/Navbar";
+import React, { Suspense, useState } from "react";
+import BottomNav from "./components/MobileNav";
+import Loading from "./components/Loading/Loading";
+
+// Lazy Loading
+const HomePage = React.lazy(() => import("./pages/HomePage"));
+const SearchPage = React.lazy(() => import("./pages/SearchPage"));
+const ProductPage = React.lazy(() => import("./pages/ProductPage"));
+const AuthPage = React.lazy(() => import("./pages/AuthPage"));
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -33,10 +36,57 @@ function App() {
         >
           <div className=" flex flex-col flex-grow px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="search/*" element={<Search />} />
-              <Route path="auth" element={<Auth />} />
-              <Route path="product/:id" element={<Product />} />
+              <Route
+                path="/"
+                element={
+                  <Suspense fallback={<Loading fullscreen={true}></Loading>}>
+                    <HomePage></HomePage>
+                  </Suspense>
+                }
+              />
+              <Route
+                index
+                element={
+                  <Suspense fallback={<Loading fullscreen={true}></Loading>}>
+                    <HomePage></HomePage>
+                  </Suspense>
+                }
+              />
+              <Route
+                path="search/*"
+                element={
+                  <Suspense fallback={<Loading fullscreen={true}></Loading>}>
+                    <SearchPage />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="auth"
+                element={
+                  <Suspense fallback={<Loading fullscreen={true}></Loading>}>
+                    <AuthPage />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="product/:id"
+                element={
+                  <Suspense fallback={<Loading fullscreen={true}></Loading>}>
+                    <ProductPage />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="*"
+                element={
+                  <div
+                    className="p-2 mx-auto antialiased font-bold 
+                text-gray-700 h-screen text-4xl"
+                  >
+                    Page not found
+                  </div>
+                }
+              />
             </Routes>
           </div>
         </main>

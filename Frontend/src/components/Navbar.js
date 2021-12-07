@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import Input from "../Elements/Input";
-import Button from "../Elements/Button";
+import Input from "../UI/Input";
+import Button from "../UI/Button";
 import Topbar from "./Topbar";
 import ProductStore from "../services/ProductState";
 import { Link } from "react-router-dom";

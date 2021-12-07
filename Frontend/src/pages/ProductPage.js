@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import Button from "../Elements/Button";
+import Button from "../UI/Button";
 import ProductStore from "../services/ProductState";
 
 function Product() {
-  window.scrollTo(0, 0);
   const { id } = useParams();
   const productCtx = useContext(ProductStore);
   const [product, setProduct] = useState({});
@@ -14,6 +13,7 @@ function Product() {
 
   useEffect(() => {
     console.log("product page useEffect init");
+    window.scrollTo(0, 0);
     fetch(`http://localhost:4000/api/product/${id}`)
       .then((response) => response.json())
       .then((data) => {
@@ -58,7 +58,7 @@ function Product() {
               key={element._id}
               className="flex gap-2 mt-2 flex-grow flex-wrap"
             >
-              <div className="flex flex-grow flex-row border p-2 rounded-xl gap-2 hover:shadow-sm">
+              <div className="flex flex-grow flex-row shadow-sm p-2 rounded-xl gap-2 hover:shadow-sm">
                 <img
                   className="object-contain w-16 rounded-lg"
                   src={element.images[0].src}

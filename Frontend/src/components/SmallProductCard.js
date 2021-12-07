@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import Button from "../Elements/Button";
+import Button from "../UI/Button";
 import ProductStore from "../services/ProductState";
 
-function Card(prop) {
+function SmallProductCard(prop) {
   console.log("card is called");
   const ProductCtx = useContext(ProductStore);
 
@@ -73,4 +73,4 @@ function Card(prop) {
   );
 }
 
-export default React.memo(Card);
+export default React.memo(SmallProductCard);

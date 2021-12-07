@@ -61,7 +61,6 @@ const Header = () => {
         </p>
         <button
           onClick={() => {
-            window.focus();
             window.scrollBy(0, window.innerHeight);
           }}
           aria-label="Scroll down"

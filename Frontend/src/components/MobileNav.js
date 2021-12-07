@@ -1,7 +1,7 @@
 import React from "react";
-import Button from "../Elements/Button";
+import Button from "../UI/Button";
 
-function BottomNav() {
+function MobileNav() {
   return (
     <nav className="fixed border bottom-0 bg-white w-full flex flex-row flex-wrap gap-2 z-20 justify-evenly md:hidden">
       <div className="flex flex-1">
@@ -40,4 +40,4 @@ function BottomNav() {
   );
 }
 
-export default BottomNav;
+export default MobileNav;

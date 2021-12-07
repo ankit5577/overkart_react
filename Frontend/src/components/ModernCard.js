@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Card(prop) {
+function ModernCard(prop) {
   console.log(prop.product);
   return (
     <div className="flex flex-1 flex-wrap p-4 antialiased text-gray-900">
@@ -47,4 +47,4 @@ function Card(prop) {
   );
 }
 
-export default React.memo(Card);
+export default React.memo(ModernCard);
