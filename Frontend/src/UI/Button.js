@@ -7,7 +7,7 @@ function Button(prop) {
       color += "bg-deep-purple-accent-400";
       break;
     case "secondary":
-      color += "bg-teal-400";
+      color += "bg-teal-accent-700";
       break;
     default:
       color = "";

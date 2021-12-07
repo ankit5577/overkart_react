@@ -45,7 +45,7 @@ function Product() {
 
   return (
     <div className="flex flex-row-reverse">
-      <div className="hidden md:flex md:flex-1 md:flex-row border-l md:flex-wrap p-2 max-h-screen overflow-auto">
+      <div className="hidden md:flex md:flex-1 md:flex-row border-l md:flex-wrap p-2 max-h-screen overflow-y-scroll ">
         <h2 className="font-sans text-xl place-self-center font-semibold leading-none tracking-tight text-gray-900 sm:text-xl">
           <span className="inline-block mb-2">Similar Products</span>
           <div className="h-1 ml-auto duration-300 origin-left transform bg-deep-purple-accent-400 scale-x-30 group-hover:scale-x-100" />
@@ -142,30 +142,40 @@ function Product() {
                 <p>₹ {product.price}</p>
               )}
             </div>
-            <div className="flex flex-grow flex-row overflow-scroll">
+            <div
+              className={`flex flex-grow flex-row ${
+                product?.collections?.length > 4
+                  ? "overflow-x-scroll"
+                  : "overflow-hidden"
+              }`}
+            >
               {product?.collections?.map((data) => (
                 <span
-                  className={`px-2 py-1 text-xs tracking-light text-center self-center justify-self-center
-                   bg-gray-200 text-gray-700 rounded-full m-1`}
+                  className={`px-2 py-1 text-xs font-medium tracking-light text-center self-center justify-self-center
+                  bg-teal-accent-700 text-white rounded-full m-1`}
                 >
-                  #{data}
+                  {data}
                 </span>
               ))}
             </div>
           </div>
           <div className="flex p-2 my-2 gap-2">
-            <Button
-              color="primary"
-              class="rounded-md text-white hover:bg-deep-purple-accent-700 hover:shadow-xl"
-            >
-              Add to cart
-            </Button>
-            <Button
-              color="secondary"
-              class="text-white rounded-md hover:bg-teal-800 hover:shadow-xl"
-            >
-              Buy now
-            </Button>
+            <div>
+              <Button
+                color="primary"
+                class="rounded-md text-xs antialiased tracking-wider text-white hover:bg-deep-purple-accent-700 hover:shadow-xl"
+              >
+                Add to cart
+              </Button>
+            </div>
+            <div>
+              <Button
+                color="secondary"
+                class="text-white text-xs antialiased tracking-wider rounded-md hover:bg-teal-accent-900 hover:shadow-xl"
+              >
+                Buy now
+              </Button>
+            </div>
           </div>
         </div>
       </div>
