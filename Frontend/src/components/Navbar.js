@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import Input from "../Elements/Input";
 import Button from "../Elements/Button";
 import Topbar from "./Topbar";
@@ -6,13 +6,13 @@ import ProductStore from "../services/ProductState";
 import { Link } from "react-router-dom";
 
 function Navbar(prop) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
   const productCtx = useContext(ProductStore);
 
-  const setIsMenuHandler = () => {
-    prop.hideSidebar();
-    setIsMenuOpen(() => !isMenuOpen);
-  };
+  // const setIsMenuHandler = () => {
+  //   prop.hideSidebar();
+  //   setIsMenuOpen(() => !isMenuOpen);
+  // };
 
   return (
     <nav className="fixed bg-white w-full z-10 border top-0">
@@ -34,7 +34,6 @@ function Navbar(prop) {
               alt="logo"
             />
           </Link>
-
         </div>
         <div className="flex flex-1">
           <Input
@@ -44,12 +43,12 @@ function Navbar(prop) {
             icon_url={"https://img.icons8.com/ios/50/000000/search--v1.png"}
           />
         </div>
-        <Button class="md:hidden" click={() => setIsMenuHandler()}>
+        {/* <Button class="md:hidden" click={() => setIsMenuHandler()}>
           <img
             alt="menu"
             src="https://img.icons8.com/material-outlined/24/000000/menu--v1.png"
           />
-        </Button>
+        </Button> */}
 
         {/* for displays */}
         <nav className="hidden md:flex justify-center align-middle flex-wrap">
@@ -66,8 +65,11 @@ function Navbar(prop) {
           </Button>
         </nav>
         {/* display nav end */}
+        {/*  
+        
+        */}
         {/* for mobile */}
-        {isMenuOpen && (
+        {/* {isMenuOpen && (
           <nav className="absolute w-full top-0 left-0">
             <div className="bg-gray-50 p-4 flex flex-auto flex-col m-4 border rounded">
               <div className="flex justify-between">
@@ -93,7 +95,7 @@ function Navbar(prop) {
               </nav>
             </div>
           </nav>
-        )}
+        )} */}
         {/* mobile nav end */}
       </div>
     </nav>

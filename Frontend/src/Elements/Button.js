@@ -4,10 +4,10 @@ function Button(prop) {
   let color = "";
   switch (prop.color) {
     case "primary":
-      color += "bg-blue-700";
+      color += "bg-deep-purple-accent-400";
       break;
     case "secondary":
-      color += "bg-green-400";
+      color += "bg-teal-400";
       break;
     default:
       color = "";
