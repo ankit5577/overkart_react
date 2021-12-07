@@ -68,7 +68,7 @@ function Product() {
                     {element.title}
                   </h4>
                   <h5 className="text-sm font-light antialiased">
-                    {element.price}
+                    ₹{element.price}
                   </h5>
                 </div>
               </div>
@@ -117,7 +117,7 @@ function Product() {
           </h2>
           <div className="my-4 font-extralight">{product.description}</div>
           <div className="flex flex-row">
-            <div className=" text-gray-800 flex-[1]">
+            <div className=" text-gray-800 flex-[1] antialiased">
               {product.discount > 0 ? (
                 <div>
                   <p className="font-semibold">
