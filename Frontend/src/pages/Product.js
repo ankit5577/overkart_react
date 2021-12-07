@@ -5,6 +5,7 @@ import Button from "../Elements/Button";
 import ProductStore from "../services/ProductState";
 
 function Product() {
+  window.scrollTo(0, 0);
   const { id } = useParams();
   const productCtx = useContext(ProductStore);
   const [product, setProduct] = useState({});
@@ -24,16 +25,16 @@ function Product() {
         console.log("getting similar products");
         setSimilarProducts(() => {
           let local_products = [];
-          let x = 0;
+          let count_image = 0;
           for (let local of productCtx.products) {
             if (
               local.category === product.category ||
               local.type === product.type
             ) {
               local_products.push(local);
-              x++;
+              count_image++;
             }
-            if (x === 10) {
+            if (count_image === 10) {
               break;
             }
           }
@@ -144,7 +145,8 @@ function Product() {
             <div className="flex flex-grow flex-row overflow-scroll">
               {product?.collections?.map((data) => (
                 <span
-                  className={`p-1 text-xs tracking-light text-center self-center justify-self-center bg-teal-400 text-white rounded-full m-1`}
+                  className={`px-2 py-1 text-xs tracking-light text-center self-center justify-self-center
+                   bg-gray-200 text-gray-700 rounded-full m-1`}
                 >
                   #{data}
                 </span>
@@ -154,13 +156,13 @@ function Product() {
           <div className="flex p-2 my-2 gap-2">
             <Button
               color="primary"
-              class="rounded-2xl text-white hover:bg-deep-purple-accent-700 hover:shadow-xl"
+              class="rounded-md text-white hover:bg-deep-purple-accent-700 hover:shadow-xl"
             >
               Add to cart
             </Button>
             <Button
               color="secondary"
-              class="text-white rounded-2xl hover:bg-teal-800 hover:shadow-xl"
+              class="text-white rounded-md hover:bg-teal-800 hover:shadow-xl"
             >
               Buy now
             </Button>

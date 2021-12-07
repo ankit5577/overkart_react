@@ -15,7 +15,7 @@ function Navbar(prop) {
   // };
 
   return (
-    <nav className="fixed bg-white w-full z-10 border top-0">
+    <nav className="fixed bg-white w-full z-20 border top-0">
       <Topbar />
       <div className="container mx-auto p-4 flex flex-row justify-between gap-4">
         <div className="flex">

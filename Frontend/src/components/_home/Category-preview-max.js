@@ -27,7 +27,7 @@ export const CategoryPreviewMax = () => {
             </div>
           </a>
           <h2 className="font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl">
-            <span className="inline-block mb-2">The brown fox</span>
+            <span className="inline-block mb-2">Latest Collection</span>
             <div className="h-1 ml-auto duration-300 origin-left transform bg-deep-purple-accent-400 scale-x-30 group-hover:scale-x-100" />
           </h2>
         </div>

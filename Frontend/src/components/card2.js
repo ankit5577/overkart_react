@@ -2,23 +2,25 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Card(prop) {
+  console.log(prop.product);
   return (
     <div className="flex flex-1 flex-wrap p-4 antialiased text-gray-900">
       <div className="flex flex-1 relative pb-20">
         <img
           src={prop.product?.images[0]?.src}
           alt={`${prop.product?.brand} ${prop.product?.title} ${prop.product?.category}`}
-          className="w-full object-cover object-center rounded-2xl hover:shadow-md flex flex-1"
+          className="object-fill rounded-2xl hover:shadow-md flex flex-1"
         />
-        <div className="absolute transform translate-x-5 bottom-0">
-          <Link to={`/product/${prop.product?._id}`}>
-            <div className="bg-white p-6 rounded-xl shadow-lg">
+        <div className="absolute bottom-0 w-full">
+          <Link className="flex" to={`/product/${prop.product?._id}`}>
+            <div className="bg-white p-6 mx-auto rounded-xl shadow-lg max-w-[320px]">
               <div className="flex items-baseline">
                 <span className="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
                   New
                 </span>
-                <div className="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
-                  2 baths &bull; 3 rooms
+                <div className="ml-2 truncate text-gray-600 
+                uppercase text-xs font-semibold tracking-wider">
+                  {prop.product?.collections?.map((tag) => tag)} &bull;
                 </div>
               </div>
 

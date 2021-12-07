@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import Button from "../Elements/Button";
 import ProductStore from "../services/ProductState";
 
 function Card(prop) {
@@ -46,7 +47,7 @@ function Card(prop) {
       >
         <Link to={`/product/${prop.product?._id}`}>
           <div className="flex flex-col justify-start items-baseline">
-            <h1 className="text-lg font-normal mb-0 text-gray-600 font-sans pt-2">
+            <h1 className="text-lg antialiased tracking-wider font-bold mb-0 text-gray-600 pt-2">
               {prop.product?.title}
             </h1>
             <span className="text-xs text-indigo-300 mt-0">
@@ -54,17 +55,18 @@ function Card(prop) {
             </span>
           </div>
         </Link>
-        <p className="text-xs text-gray-500 w-4/5 overflow-y-hidden overflow-ellipsis my-4">
+        <p className="text-xs text-gray-500 w-4/5 overflow-auto no-scrollbar overflow-ellipsis my-4">
           {prop.product?.description}
         </p>
         <div className="w-full flex justify-between items-center py-2">
           <h1 className="font-bold text-gray-500">₹ {prop.product?.price}</h1>
-          <button
-            onClick={() => addToCartHandler(prop.product?._id)}
-            className="bg-gray-700 mr-5 text-white px-3 py-1 rounded-sm shadow-md"
+          <Button
+            click={() => addToCartHandler(prop.product?._id)}
+            class="border antialiased text-sm text-teal-400 border-teal-400 mr-5 px-3 py-1 rounded-lg 
+            hover:bg-teal-400 hover:text-white hover:shadow-lg"
           >
             Add
-          </button>
+          </Button>
         </div>
       </div>
     </div>
