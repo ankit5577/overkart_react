@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 function ModernCard(prop) {
   console.log(prop.product);
   return (
-    <div className="flex flex-1 flex-wrap p-4 antialiased text-gray-900">
-      <div className="flex flex-1 relative pb-20">
+    <div className="flex flex-1 flex-wrap p-4  antialiased text-gray-900">
+      <div className="flex max-h-[500px] flex-1 relative pb-20">
         <img
           src={prop.product?.images[0]?.src}
           alt={`${prop.product?.brand} ${prop.product?.title} ${prop.product?.category}`}
@@ -18,8 +18,10 @@ function ModernCard(prop) {
                 <span className="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
                   New
                 </span>
-                <div className="ml-2 truncate text-gray-600 
-                uppercase text-xs font-semibold tracking-wider">
+                <div
+                  className="ml-2 truncate text-gray-600 
+                uppercase text-xs font-semibold tracking-wider"
+                >
                   {prop.product?.collections?.map((tag) => tag)} &bull;
                 </div>
               </div>
