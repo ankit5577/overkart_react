@@ -8,6 +8,7 @@ import { useState } from "react";
 import BottomNav from "./components/BottomNav";
 import Product from "./pages/Product";
 import Search from "./pages/Search";
+import Auth from "./pages/Auth";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -34,6 +35,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="search/*" element={<Search />} />
+              <Route path="auth" element={<Auth />} />
               <Route path="product/:id" element={<Product />} />
             </Routes>
           </div>

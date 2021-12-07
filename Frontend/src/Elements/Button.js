@@ -14,7 +14,7 @@ function Button(prop) {
       break;
   }
   return (
-    <button className={`flex p-4 ${color} ${prop.class}`} onClick={prop.click}>
+    <button type={`${prop.type}`} className={`flex p-4 ${color} ${prop.class}`} onClick={prop.click}>
       {prop.children}
     </button>
   );

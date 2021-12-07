@@ -2,6 +2,7 @@ const UserModel = require("../../models/User.model");
 const { sendResponse, sendError } = require("../_helper");
 
 const login = async (req, res, next) => {
+  console.log(req.body)
   try {
     if (!req.body.email || !req.body.password) {
       sendError(
@@ -11,37 +12,42 @@ const login = async (req, res, next) => {
         },
         res
       );
-    }
-    const data = await UserModel.findOne({
-      email: req.body.email,
-    });
-    if (!data) {
-      sendError(
-        {
-          title: "no_user",
-          msg: "no user exists",
-        },
-        res
-      );
-    }
-    if (req.body.password === data.password) {
-      sendResponse(
-        {
-          msg: `user ${req.body.email} is logged in`,
-          data: { ...data._doc, password: "" },
-        },
-        res
-      );
     } else {
-      sendError(
-        {
-          title: "invalid_cred",
-          msg: "invalid credentials",
-        },
-        res
-      );
+      const data = await UserModel.findOne({
+        email: req.body.email,
+      });
+      if (!data) {
+        console.log("error 2");
+        sendError(
+          {
+            title: "no_user",
+            msg: "no user exists",
+          },
+          res
+        );
+      }
+      if (req.body.password === data.password) {
+        console.log("error 3");
+        sendResponse(
+          {
+            msg: `user ${req.body.email} is logged in`,
+            data: { ...data._doc, password: "" },
+          },
+          res
+        );
+      } else {
+        console.log("error 4");
+        sendError(
+          {
+            title: "invalid_cred",
+            msg: "invalid credentials",
+          },
+          res
+        );
+      }
     }
   } catch (error) {
+    console.log("error 5");
     console.log("ERROR at login");
     sendError(
       {

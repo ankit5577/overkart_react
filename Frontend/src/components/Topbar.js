@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Button from "../Elements/Button";
 
 function Topbar() {
@@ -32,14 +33,16 @@ function Topbar() {
             />{" "}
             Wishlist
           </Button>
-          <Button class="text-xs hover:text-black relative group">
-            <img
-              className="w-4 mr-1"
-              src="https://img.icons8.com/material-rounded/24/000000/guest-male.png"
-              alt="account"
-            />
-            Login / Signup
-          </Button>
+          <Link to="/auth">
+            <Button class="text-xs hover:text-black relative group">
+              <img
+                className="w-4 mr-1"
+                src="https://img.icons8.com/material-rounded/24/000000/guest-male.png"
+                alt="account"
+              />
+              Login / Signup
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
