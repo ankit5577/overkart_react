@@ -10,8 +10,8 @@ function Card(prop) {
           alt={`${prop.product?.brand} ${prop.product?.title} ${prop.product?.category}`}
           className="w-full object-cover object-center rounded-2xl hover:shadow-md flex flex-1"
         />
-          <div className="absolute transform translate-x-7 bottom-0">
-        <Link to={`/product/${prop.product?._id}`}>
+        <div className="absolute transform translate-x-5 bottom-0">
+          <Link to={`/product/${prop.product?._id}`}>
             <div className="bg-white p-6 rounded-xl shadow-lg">
               <div className="flex items-baseline">
                 <span className="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
@@ -38,8 +38,8 @@ function Card(prop) {
                 </span>
               </div>
             </div>
-        </Link>
-          </div>
+          </Link>
+        </div>
       </div>
     </div>
   );
