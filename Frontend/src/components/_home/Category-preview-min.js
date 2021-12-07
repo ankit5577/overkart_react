@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useMemo } from "react";
+import React, { useContext, useMemo } from "react";
 import ProductStore from "../../services/ProductState";
 import Card from "../card2";
 
