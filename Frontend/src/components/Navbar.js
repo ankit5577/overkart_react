@@ -3,15 +3,14 @@ import Input from "../UI/Input";
 import Button from "../UI/Button";
 import Topbar from "./Topbar";
 import ProductStore from "../services/ProductState";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar(prop) {
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
   const productCtx = useContext(ProductStore);
-  // const setIsMenuHandler = () => {
-  //   prop.hideSidebar();
-  //   setIsMenuOpen(() => !isMenuOpen);
-  // };
+  const navigate = useNavigate();
+  function searchQuery(query) {
+    navigate(`search/${query}`);
+  }
 
   return (
     <nav className="fixed bg-white w-full z-20 border top-0">
@@ -38,6 +37,7 @@ function Navbar(prop) {
           <Input
             icon={true}
             icon_right={true}
+            click={searchQuery}
             placeholder={"Search Products"}
             icon_url={"https://img.icons8.com/ios/50/000000/search--v1.png"}
           />

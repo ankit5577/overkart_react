@@ -53,7 +53,7 @@ function App() {
                 }
               />
               <Route
-                path="search/*"
+                path="search/:query"
                 element={
                   <Suspense fallback={<Loading fullscreen={true}></Loading>}>
                     <SearchPage />
