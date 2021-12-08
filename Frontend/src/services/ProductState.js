@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import useHttp from "./Hooks/use-http";
 
 const ProductStore = createContext({
   products: [],
@@ -10,11 +11,16 @@ const ProductStore = createContext({
 export const ProductProvider = (props) => {
   const [products, setproducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const {
+    error,
+    isLoading,
+    sendRequest: fetch,
+  } = useHttp("/product/all", {}, (products) => {
+    setproducts(() => products);
+  });
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/product/all")
-      .then((response) => response.json())
-      .then((product) => setproducts(() => product.data));
+    fetch();
     setCartItems(() => {
       const localCartItems = JSON.parse(localStorage.getItem("_cart_items"));
       if (localCartItems !== null && Array.isArray(localCartItems)) {

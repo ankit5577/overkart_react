@@ -11,6 +11,7 @@ function Product() {
   const [product, setProduct] = useState({});
   const [similarProducts, setSimilarProducts] = useState([]);
   const [showImg, setshowImg] = useState("");
+  
   const responseHandler = (data) => {
     setProduct(() => data);
     setshowImg(() => data.images[0].src);
