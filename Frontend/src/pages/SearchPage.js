@@ -50,7 +50,7 @@ function Search() {
               <h2 className="text-xl md:text-3xl antialiased text-gray-800 font-semibold">
                 {data.title}{" "}
                 {data.collections.map((collection) => (
-                  <span className="bg-gray-200 p-2 ml-2 text-xs rounded-2xl">
+                  <span key={collection} className="bg-gray-200 p-2 ml-2 text-xs rounded-2xl">
                     {collection}
                   </span>
                 ))}

@@ -9,6 +9,9 @@ function Navbar(prop) {
   const productCtx = useContext(ProductStore);
   const navigate = useNavigate();
   function searchQuery(query) {
+    if (!query || query.length < 1) {
+      return;
+    }
     navigate(`search/${query}`);
   }
 
