@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 function Navbar(prop) {
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
   const productCtx = useContext(ProductStore);
-
   // const setIsMenuHandler = () => {
   //   prop.hideSidebar();
   //   setIsMenuOpen(() => !isMenuOpen);

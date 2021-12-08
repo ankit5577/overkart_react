@@ -3,9 +3,8 @@ import useHttp from "./Hooks/use-http";
 
 const ProductStore = createContext({
   products: [],
-  getProducts: () => {
-    return this.products;
-  },
+  getProducts: () => {},
+  addToCart: (id) => {},
 });
 
 export const ProductProvider = (props) => {
@@ -22,8 +21,9 @@ export const ProductProvider = (props) => {
   useEffect(() => {
     fetch();
     setCartItems(() => {
-      const localCartItems = JSON.parse(localStorage.getItem("_cart_items"));
-      if (localCartItems !== null && Array.isArray(localCartItems)) {
+      const stored_items = localStorage.getItem("_cart_items");
+      const localCartItems = stored_items ? JSON.parse(stored_items) : "";
+      if (localCartItems && Array.isArray(localCartItems)) {
         return localCartItems;
       }
       return [];

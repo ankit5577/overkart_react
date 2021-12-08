@@ -1,11 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../UI/Button";
 import ProductStore from "../services/ProductState";
 
 function SmallProductCard(prop) {
-  console.log("card is called");
+  console.log("simple card called");
+  const [product, setProduct] = useState();
   const ProductCtx = useContext(ProductStore);
+
+  useEffect(() => {
+    setProduct(() => {
+      if (ProductCtx.products?.length > 0) {
+        return ProductCtx.products[prop?.product];
+      }
+      return [];
+    });
+  }, [ProductCtx.products, prop?.product]);
 
   const addToCartHandler = (id) => {
     ProductCtx.addToCart(id);
@@ -30,8 +40,12 @@ function SmallProductCard(prop) {
     >
       <img
         className="h-1/2 w-full sm:h-full sm:w-1/2 object-cover"
-        src={prop.product?.images[0]?.src}
-        alt={prop.product?.title + " item"}
+        src={
+          product?.images
+            ? product?.images[0]?.src
+            : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+        }
+        alt={product?.title + " item"}
       />
       <div
         className="
@@ -45,23 +59,23 @@ function SmallProductCard(prop) {
             sm:h-full sm:items-baseline sm:w-1/2
           "
       >
-        <Link to={`/product/${prop.product?._id}`}>
+        <Link to={`/product/${product?._id}`}>
           <div className="flex flex-col justify-start items-baseline">
             <h1 className="text-lg antialiased tracking-wider font-bold mb-0 text-gray-600 pt-2">
-              {prop.product?.title}
+              {product?.title}
             </h1>
             <span className="text-xs text-indigo-300 mt-0">
-              by {prop.product?.brand}
+              by {product?.brand}
             </span>
           </div>
         </Link>
         <p className="text-xs text-gray-500 w-4/5 overflow-auto no-scrollbar overflow-ellipsis my-4">
-          {prop.product?.description}
+          {product?.description}
         </p>
         <div className="w-full flex justify-between items-center py-2">
-          <h1 className="font-bold text-gray-500">₹ {prop.product?.price}</h1>
+          <h1 className="font-bold text-gray-500">₹ {product?.price}</h1>
           <Button
-            click={() => addToCartHandler(prop.product?._id)}
+            click={() => addToCartHandler(product?._id)}
             class="border antialiased text-sm text-teal-400 border-teal-400 mr-5 px-3 py-1 rounded-lg 
             hover:bg-teal-400 hover:text-white hover:shadow-lg"
           >
@@ -73,4 +87,4 @@ function SmallProductCard(prop) {
   );
 }
 
-export default React.memo(SmallProductCard);
+export default React.memo(SmallProductCard); // memory

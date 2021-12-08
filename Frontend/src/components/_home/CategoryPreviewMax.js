@@ -5,20 +5,22 @@ import Card from "../ModernCard";
 export const CategoryPreviewMax = () => {
   const productCtx = useContext(ProductStore);
 
-  const getCards = useMemo(() => {
-    return [0, 1, 2, 3, 4, 5].map((index) => (
-      <Card
-        key={index}
-        product={
-          productCtx.products[
-            Math.floor(
-              Math.random() * (productCtx.products.length - index) + index
-            )
-          ]
-        }
-      ></Card>
-    ));
-  }, [productCtx.products]);
+  const getCards = useMemo(
+    () =>
+      [0, 1, 2, 3, 4, 5].map((index) => (
+        <Card
+          key={index}
+          product={
+            productCtx.products[
+              Math.floor(
+                Math.random() * (productCtx.products.length - index) + index
+              )
+            ]
+          }
+        ></Card>
+      )),
+    [productCtx.products]
+  );
 
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
