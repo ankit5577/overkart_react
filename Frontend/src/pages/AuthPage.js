@@ -1,9 +1,20 @@
-import React, { useRef } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 import useHttp from "../services/Hooks/use-http";
 import Button from "../UI/Button";
 
 const Auth = () => {
-  const formref = useRef();
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  
+  const onFormFieldChange = (e) => {
+    setFormState({
+      ...formState,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   function responseHandler(data) {
     console.log("hehe", data, error, isLoading);
@@ -17,16 +28,15 @@ const Auth = () => {
     "/user/login",
     {
       method: "POST",
-      body: {
-        email: formref?.current?.elements?.email.value,
-        name: formref?.current?.elements?.name.value,
-        password: formref?.current?.elements?.password.value,
-      },
+      body: formState,
     },
     responseHandler
   );
 
   const signupHandler = () => {
+    if (!formState.password || !formState.name || !formState.email) {
+      return "";
+    }
     fetch();
   };
 
@@ -71,7 +81,7 @@ const Auth = () => {
                 <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
                   Sign Up
                 </h3>
-                <form ref={formref}>
+                <form noValidate>
                   <div className="mb-1 sm:mb-2">
                     <label
                       htmlFor="email"
@@ -82,6 +92,8 @@ const Auth = () => {
                     <input
                       placeholder="john.doe@example.org"
                       required
+                      value={formState.email}
+                      onChange={onFormFieldChange}
                       type="text"
                       className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                       id="email"
@@ -99,6 +111,8 @@ const Auth = () => {
                       placeholder="John Doe"
                       required
                       type="text"
+                      value={formState.name}
+                      onChange={onFormFieldChange}
                       className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                       id="name"
                       name="name"
@@ -114,7 +128,9 @@ const Auth = () => {
                     <input
                       placeholder="********"
                       required
-                      type="text"
+                      value={formState.password}
+                      onChange={onFormFieldChange}
+                      type="password"
                       className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                       id="password"
                       name="password"
