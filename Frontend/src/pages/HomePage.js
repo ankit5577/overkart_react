@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Hero from "../components/Hero";
+import Rating from "../components/Rating";
 import { CategoryPreviewMax } from "../components/_home/CategoryPreviewMax";
 import { CategoryPreviewMin } from "../components/_home/CategoryPreviewMin";
 
@@ -11,6 +12,7 @@ function Home() {
   return (
     <>
       <Hero />
+      <Rating></Rating>
       <CategoryPreviewMax />
       <CategoryPreviewMin />
     </>
