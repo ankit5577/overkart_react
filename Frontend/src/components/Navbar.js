@@ -54,17 +54,19 @@ function Navbar(prop) {
 
         {/* for displays */}
         <nav className="hidden md:flex justify-center align-middle flex-wrap">
-          <Button>
-            <img
-              src="https://img.icons8.com/material-outlined/24/000000/shopping-cart--v2.png"
-              alt="cart"
-            />
-            {productCtx.cartItems.length > 0 && (
-              <div className=" rounded-full px-2 py-1 translate -translate-y-2 -translate-x-1 font-semibold bg-teal-400 text-white text-[6px]">
-                {productCtx.cartItems.length}
-              </div>
-            )}
-          </Button>
+          <Link to={'checkout'}>
+            <Button>
+              <img
+                src="https://img.icons8.com/material-outlined/24/000000/shopping-cart--v2.png"
+                alt="cart"
+              />
+              {productCtx.cartItems.length > 0 && (
+                <div className=" rounded-full px-2 py-1 translate -translate-y-2 -translate-x-1 font-semibold bg-teal-400 text-white text-[6px]">
+                  {productCtx.cartItems.length}
+                </div>
+              )}
+            </Button>
+          </Link>
         </nav>
         {/* display nav end */}
         {/*  

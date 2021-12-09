@@ -17,8 +17,8 @@ function SmallProductCard(prop) {
     });
   }, [ProductCtx.products, prop?.product]);
 
-  const addToCartHandler = (id) => {
-    ProductCtx.addToCart(id);
+  const addToCartHandler = (product) => {
+    ProductCtx.addToCart(product);
   };
 
   return (
@@ -75,7 +75,7 @@ function SmallProductCard(prop) {
         <div className="w-full flex justify-between items-center py-2">
           <h1 className="font-bold text-gray-500">₹ {product?.price}</h1>
           <Button
-            click={() => addToCartHandler(product?._id)}
+            click={() => addToCartHandler(product)}
             class="border antialiased text-sm text-teal-400 border-teal-400 mr-5 px-3 py-1 rounded-lg 
             hover:bg-teal-400 hover:text-white hover:shadow-lg"
           >

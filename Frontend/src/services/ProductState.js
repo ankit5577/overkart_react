@@ -4,7 +4,7 @@ import useHttp from "./Hooks/use-http";
 const ProductStore = createContext({
   products: [],
   getProducts: () => {},
-  addToCart: (id) => {},
+  addToCart: (product) => {},
 });
 
 export const ProductProvider = (props) => {
@@ -30,9 +30,11 @@ export const ProductProvider = (props) => {
     });
   }, []);
 
-  const addToCart = (id) => {
+  const addToCart = (product) => {
     setCartItems(() => {
-      const already_exists = cartItems.findIndex((data) => data._id === id);
+      const already_exists = cartItems.findIndex(
+        (data) => data._id === product._id
+      );
       if (already_exists > -1) {
         const localCart = cartItems;
         localCart[already_exists].quantity += 1;
@@ -42,7 +44,15 @@ export const ProductProvider = (props) => {
       // if item does not exists.
       const local_item = {
         quantity: 1,
-        _id: id,
+        brand: product.brand,
+        description: product.description,
+        discount: product.discount,
+        image: product.images[0],
+        price: product.price,
+        _id: product._id,
+        stock: product.stock,
+        title: product.title,
+        varients: product.varients,
       };
       const items = [...cartItems, local_item];
       localStorage.setItem("_cart_items", JSON.stringify(items));

@@ -3,12 +3,16 @@ import useHttp from "../services/Hooks/use-http";
 import Button from "../UI/Button";
 
 const Auth = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   const [formState, setFormState] = useState({
     name: "",
     email: "",
     password: "",
   });
-  
+
   const onFormFieldChange = (e) => {
     setFormState({
       ...formState,

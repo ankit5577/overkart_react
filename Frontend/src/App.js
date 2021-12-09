@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import React, { Suspense, useState } from "react";
 import BottomNav from "./components/MobileNav";
 import Loading from "./components/Loading/Loading";
+import Checkout from "./pages/CheckoutPage";
 
 // Lazy Loading
 const HomePage = React.lazy(() => import("./pages/HomePage"));
@@ -57,6 +58,14 @@ function App() {
                 element={
                   <Suspense fallback={<Loading fullscreen={true}></Loading>}>
                     <SearchPage />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="checkout"
+                element={
+                  <Suspense fallback={<Loading fullscreen={true}></Loading>}>
+                    <Checkout />
                   </Suspense>
                 }
               />
