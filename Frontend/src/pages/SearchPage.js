@@ -25,6 +25,7 @@ function Search() {
 
   return (
     <div className="flex flex-grow flex-col gap-2">
+      <h2 className="font-thin text-3xl">Search Results for "<span className="font-medium text-gray-800">{query}</span>"</h2>
       {loading && <Loading fullscreen={true}></Loading>}
       {(products.length && !loading) === 0 && (
         <div className="text-4xl text-center flex font-bold text-gray-800">
@@ -37,20 +38,20 @@ function Search() {
           <Link
             key={index}
             to={`../product/${data._id}`}
-            className="p-2 border rounded-lg max-h-[200px] flex flex-row gap-4"
+            className="p-2 border rounded-lg flex flex-row gap-4"
           >
-            <div className="w-[200px]">
+            <div className="flex-[2] md:flex-[1]">
               <img
                 src={data.images[0].src}
                 alt={`${data.title} by ${data.brand}`}
-                className="object-fit w-28 rounded-md"
+                className="rounded-lg object-contain max-h-80 w-full"
               ></img>
             </div>
-            <div className="p-2  flex flex-grow flex-col">
-              <h2 className="text-xl md:text-3xl antialiased text-gray-800 font-semibold">
+            <div className="p-2 flex flex-[3] md:flex-[5] flex-col">
+              <h2 className="text-2xl md:text-3xl antialiased text-gray-800 font-semibold">
                 {data.title}{" "}
                 {data.collections.map((collection) => (
-                  <span key={collection} className="bg-gray-200 p-2 ml-2 text-xs rounded-2xl">
+                  <span key={collection} className="bg-gray-200 p-2 ml-2 font-normal text-xs rounded-2xl">
                     {collection}
                   </span>
                 ))}
